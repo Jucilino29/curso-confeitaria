@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Curso de Confeitaria - Inscrição</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Custom CSS for elements that need more styling than Tailwind provides */
+        .form-input {
+            transition: all 0.3s ease;
+        }
+        .form-input:focus {
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+        }
+        .progress-bar {
+            transition: width 0.5s ease;
+        }
+        .payment-option:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <!-- Header Section -->
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-purple-800 mb-2">Curso de Confeitaria</h1>
+            <p class="text-lg text-gray-600">Transforme sua paixão por doces em uma carreira profissional</p>
+            <div class="mt-4 bg-yellow-100 border-l-4 border-yellow-500 p-4 text-left">
+                <p class="font-semibold text-yellow-800"><i class="fas fa-exclamation-circle mr-2"></i>Vagas limitadas!</p>
+                <p class="text-yellow-700">Apenas <span id="remaining-spots" class="font-bold">10</span> vagas disponíveis</p>
+                
+            </div>
+        </header>
+
+        <!-- Progress Steps -->
+        <div class="mb-8">
+            <div class="flex justify-between items-center mb-4">
+                <div class="step flex flex-col items-center" data-step="1">
+                    <div class="w-10 h-10 rounded-full bg-purple-600 text-white flex items-center justify-center font-bold mb-1">1</div>
+                    <span class="text-sm font-medium text-purple-600">Dados Pessoais</span>
+                </div>
+                <div class="flex-1 h-1 mx-2 bg-gray-200">
+                    <div class="h-full bg-purple-600 progress-bar" style="width: 0%"></div>
+                </div>
+                <div class="step flex flex-col items-center" data-step="2">
+                    <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-bold mb-1">2</div>
+                    <span class="text-sm font-medium text-gray-500">Pagamento</span>
+                </div>
+                <div class="flex-1 h-1 mx-2 bg-gray-200">
+                    <div class="h-full bg-gray-200 progress-bar" style="width: 0%"></div>
+                </div>
+                <div class="step flex flex-col items-center" data-step="3">
+                    <div class="w-10 h-10 rounded-full bg-gray-200 text-gray-600 flex items-center justify-center font-bold mb-1">3</div>
+                    <span class="text-sm font-medium text-gray-500">Confirmação</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Course Details -->
+        <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-xl font-bold text-purple-800 mb-4">Detalhes do Curso</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <p class="font-semibold">Duração:</p>
+                    <p class="text-gray-700">2 semanas</p>
+                </div>
+                <div>
+                    <p class="font-semibold">Datas:</p>
+                    <p class="text-gray-700">18/08 a 01/09</p>
+                </div>
+                <div>
+                    <p class="font-semibold">Investimento:</p>
+                    <p class="text-gray-700">65.000 KZ</p>
+                </div>
+                <div>
+                    <p class="font-semibold">Vagas restantes:</p>
+                    <p class="text-gray-700"><span id="remaining-spots-2">10</span>/10</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Registration Form -->
+        <form id="registration-form" class="bg-white rounded-lg shadow-md p-6 mb-8">
+            <h2 class="text-xl font-bold text-purple-800 mb-4">Dados Pessoais</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div>
+                    <label for="full-name" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo*</label>
+                    <input type="text" id="full-name" name="full-name" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md form-input focus:border-purple-500 focus:ring-purple-500">
+                </div>
+                
+                <div>
+                    <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Telefone*</label>
+                    <input type="tel" id="phone" name="phone" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md form-input focus:border-purple-500 focus:ring-purple-500"
+                        placeholder="+244 123 456 789">
+                </div>
+                
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail (Opcional)</label>
+                    <input type="email" id="email" name="email"
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md form-input focus:border-purple-500 focus:ring-purple-500">
+                </div>
+                
+                <div>
+                    <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Morada*</label>
+                    <input type="text" id="address" name="address" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md form-input focus:border-purple-500 focus:ring-purple-500">
+                </div>
+                
+                <div>
+                    <label for="age" class="block text-sm font-medium text-gray-700 mb-1">Idade*</label>
+                    <input type="number" id="age" name="age" min="16" max="99" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md form-input focus:border-purple-500 focus:ring-purple-500">
+                </div>
+                
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-1">Sexo*</label>
+                    <div class="flex space-x-4">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="gender" value="Masculino" required
+                                class="text-purple-600 focus:ring-purple-500">
+                            <span class="ml-2">Masculino</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="gender" value="Feminino"
+                                class="text-purple-600 focus:ring-purple-500">
+                            <span class="ml-2">Feminino</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="flex justify-end">
+                <button type="button" id="next-btn" class="px-6 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition">
+                    Próximo <i class="fas fa-arrow-right ml-2"></i>
+                </button>
+            </div>
+        </form>
+
+        <!-- Payment Section (Hidden Initially) -->
+        <div id="payment-section" class="bg-white rounded-lg shadow-md p-6 mb-8 hidden">
+            <h2 class="text-xl font-bold text-purple-800 mb-4">Método de Pagamento</h2>
+            
+            <div class="mb-6">
+                <p class="text-gray-700 mb-2">Valor total: <span class="font-bold">65.000 KZ</span></p>
+                <p class="text-sm text-gray-500">Escolha seu método de pagamento preferido:</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
+                <div class="payment-option border border-gray-200 rounded-lg p-4 cursor-pointer transition hover:border-purple-300"
+                    data-payment="multicaixa">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-mobile-alt text-blue-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-800">Multicaixa Express</h3>
+                            <p class="text-sm text-gray-500">Pague com o seu telemóvel</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="payment-option border border-purple-300 rounded-lg p-4 cursor-pointer transition hover:border-purple-300 ring-2 ring-purple-200"
+                    data-payment="transfer">
+                    <div class="flex items-center">
+                        <div class="w-12 h-12 bg-green-50 rounded-full flex items-center justify-center mr-4">
+                            <i class="fas fa-university text-green-600 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-medium text-gray-800">Transferência Bancária</h3>
+                            <p class="text-sm text-gray-500">Dados bancários serão enviados</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Multicaixa Express Payment Form -->
+            <div id="multicaixa-form" class="hidden">
+                <div class="bg-blue-50 border border-blue-200 rounded-lg p-4 mb-4">
+                    <div class="flex items-start">
+                        <i class="fas fa-info-circle text-blue-600 mt-1 mr-2"></i>
+                        <p class="text-blue-800 text-sm">Você receberá uma notificação no seu telemóvel para confirmar o pagamento via Multicaixa Express. Certifique-se que tem o aplicativo instalado.</p>
+                    </div>
+                </div>
+                
+                <div class="mb-4">
+                    <label for="mobile-number" class="block text-sm font-medium text-gray-700 mb-1">Número de Telemóvel*</label>
+                    <input type="tel" id="mobile-number" name="mobile-number" required
+                        class="w-full px-4 py-2 border border-gray-300 rounded-md form-input focus:border-blue-500 focus:ring-blue-500"
+                        placeholder="912345678">
+                </div>
+                
+                <div class="flex justify-between">
+                    <button type="button" id="back-btn" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition">
+                        <i class="fas fa-arrow-left mr-2"></i> Voltar
+                    </button>
+                    <button type="button" id="pay-multicaixa-btn" class="px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+                        Pagar com Multicaixa <i class="fas fa-mobile-alt ml-2"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Bank Transfer Form -->
+            <div id="transfer-form">
+                <div class="bg-green-50 border border-green-200 rounded-lg p-4 mb-4">
+                    <div class="flex items-start">
+                        <i class="fas fa-info-circle text-green-600 mt-1 mr-2"></i>
+                        <div>
+                            <p class="text-green-800 text-sm font-semibold mb-2">Dados Bancários:</p>
+                            <p class="text-green-800 text-sm mb-1">Titular: Jucilino Edvandro António Jamba</p>
+                            <p class="text-green-800 text-sm mb-1">Banco: Atlântico</p>
+                            <p class="text-green-800 text-sm mb-1">IBAN: AO06 0055 0000 2076 9342 1018 1</p>
+                            <p class="text-green-800 text-sm mt-2">Envie o comprovante para confirmar sua inscrição.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="flex justify-between">
+                    <button type="button" id="back-btn-2" class="px-6 py-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300 transition">
+                        <i class="fas fa-arrow-left mr-2"></i> Voltar
+                    </button>
+                    <button type="button" id="pay-transfer-btn" class="px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition">
+                        Receber Dados Bancários <i class="fas fa-university ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Confirmation Section (Hidden Initially) -->
+        <div id="confirmation-section" class="bg-white rounded-lg shadow-md p-6 mb-8 text-center hidden">
+            <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                <i class="fas fa-check text-green-600 text-3xl"></i>
+            </div>
+            
+            <h2 class="text-2xl font-bold text-green-600 mb-2">Inscrição Confirmada!</h2>
+            <p class="text-gray-700 mb-6">Obrigado por se inscrever no Curso de Confeitaria. Sua vaga está reservada por 24 horas. Envie o comprovativo de pagamento para confirmar sua participação.</p>
+            
+            <div class="bg-gray-50 rounded-lg p-4 text-left inline-block">
+                <p class="font-medium mb-2">Resumo da Inscrição:</p>
+                <ul class="text-sm text-gray-600 space-y-1">
+                    <li><span class="font-medium">Nome:</span> <span id="summary-name"></span></li>
+                    <li><span class="font-medium">Telefone:</span> <span id="summary-phone"></span></li>
+                    <li><span class="font-medium">Método de Pagamento:</span> <span id="summary-payment"></span></li>
+                </ul>
+            </div>
+            
+            <div class="mt-6 space-y-3">
+                <p class="text-gray-600">Envie o comprovativo de pagamento via WhatsApp:</p>
+                <a id="whatsapp-btn" href="https://wa.me/244936710640?text=Comprovativo%20de%20pagamento%20para%20o%20curso%20de%20confeitaria" 
+                   target="_blank" 
+                   class="px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition inline-flex items-center">
+                    <i class="fab fa-whatsapp mr-2 text-xl"></i> Enviar Comprovativo
+                </a>
+                <div>
+                    <a href="#" class="px-6 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition inline-block">
+                        Voltar ao Início
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- WhatsApp Contact -->
+        <div class="bg-white rounded-lg shadow-md p-6 text-center">
+            <h3 class="text-lg font-medium text-gray-800 mb-2">Dúvidas?</h3>
+            <p class="text-gray-600 mb-4">Entre em contato conosco via WhatsApp</p>
+            <a href="https://wa.me/244936710640" target="_blank" class="px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition inline-flex items-center">
+                <i class="fab fa-whatsapp mr-2 text-xl"></i> WhatsApp
+            </a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Form steps management
+            const registrationForm = document.getElementById('registration-form');
+            const paymentSection = document.getElementById('payment-section');
+            const confirmationSection = document.getElementById('confirmation-section');
+            const nextBtn = document.getElementById('next-btn');
+            const backBtn = document.getElementById('back-btn');
+            const backBtn2 = document.getElementById('back-btn-2');
+            const payMulticaixaBtn = document.getElementById('pay-multicaixa-btn');
+            const payTransferBtn = document.getElementById('pay-transfer-btn');
+            const multicaixaForm = document.getElementById('multicaixa-form');
+            const transferForm = document.getElementById('transfer-form');
+            const paymentOptions = document.querySelectorAll('.payment-option');
+            const steps = document.querySelectorAll('.step');
+            const progressBars = document.querySelectorAll('.progress-bar');
+            
+            let selectedPaymentMethod = null;
+            let remainingSpots = 10;
+            
+            // Update remaining spots
+            function updateSpots() {
+                document.querySelectorAll('#remaining-spots, #remaining-spots-2').forEach(el => {
+                    el.textContent = remainingSpots;
+                });
+            }
+            
+            // Next button click handler
+            nextBtn.addEventListener('click', function() {
+                if (registrationForm.checkValidity()) {
+                    registrationForm.classList.add('hidden');
+                    paymentSection.classList.remove('hidden');
+                    
+                    // Update progress steps
+                    steps[1].querySelector('div').classList.remove('bg-gray-200', 'text-gray-600');
+                    steps[1].querySelector('div').classList.add('bg-purple-600', 'text-white');
+                    steps[1].querySelector('span').classList.remove('text-gray-500');
+                    steps[1].querySelector('span').classList.add('text-purple-600');
+                    
+                    progressBars[0].style.width = '100%';
+                    progressBars[1].style.width = '0%';
+                } else {
+                    // Show validation errors
+                    registrationForm.reportValidity();
+                }
+            });
+            
+            // Back button click handler
+            backBtn.addEventListener('click', function() {
+                paymentSection.classList.add('hidden');
+                registrationForm.classList.remove('hidden');
+                multicaixaForm.classList.add('hidden');
+                transferForm.classList.add('hidden');
+                
+                // Reset progress steps
+                steps[1].querySelector('div').classList.add('bg-gray-200', 'text-gray-600');
+                steps[1].querySelector('div').classList.remove('bg-purple-600', 'text-white');
+                steps[1].querySelector('span').classList.add('text-gray-500');
+                steps[1].querySelector('span').classList.remove('text-purple-600');
+                
+                progressBars[0].style.width = '0%';
+            });
+            
+            // Second back button click handler
+            backBtn2.addEventListener('click', function() {
+                multicaixaForm.classList.add('hidden');
+                transferForm.classList.add('hidden');
+                selectedPaymentMethod = null;
+                
+                // Highlight payment options again
+                paymentOptions.forEach(option => {
+                    option.classList.remove('border-purple-300', 'ring-2', 'ring-purple-200');
+                });
+            });
+            
+            // Payment option selection
+            paymentOptions.forEach(option => {
+                option.addEventListener('click', function() {
+                    // Reset all options
+                    paymentOptions.forEach(opt => {
+                        opt.classList.remove('border-purple-300', 'ring-2', 'ring-purple-200');
+                    });
+                    
+                    // Select current option
+                    this.classList.add('border-purple-300', 'ring-2', 'ring-purple-200');
+                    selectedPaymentMethod = this.dataset.payment;
+                    
+                    // Show appropriate form
+                    if (selectedPaymentMethod === 'multicaixa') {
+                        multicaixaForm.classList.remove('hidden');
+                        transferForm.classList.add('hidden');
+                    } else if (selectedPaymentMethod === 'transfer') {
+                        transferForm.classList.remove('hidden');
+                        multicaixaForm.classList.add('hidden');
+                    }
+                });
+            });
+            
+            // Multicaixa payment button click handler
+            payMulticaixaBtn.addEventListener('click', function() {
+                const mobileNumber = document.getElementById('mobile-number').value;
+                
+                if (!mobileNumber) {
+                    alert('Por favor, insira o seu número de telemóvel');
+                    return;
+                }
+                
+                // Simulate payment processing
+                simulatePayment('Multicaixa Express');
+            });
+            
+            // Bank transfer button click handler
+            payTransferBtn.addEventListener('click', function() {
+                // Simulate payment processing
+                simulatePayment('Transferência Bancária');
+            });
+            
+            // Simulate payment processing and show confirmation
+            function simulatePayment(paymentMethod) {
+                // Show loading state
+                if (paymentMethod === 'Multicaixa Express') {
+                    payMulticaixaBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processando...';
+                    payMulticaixaBtn.disabled = true;
+                } else {
+                    payTransferBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processando...';
+                    payTransferBtn.disabled = true;
+                }
+                
+                // Simulate API call delay
+                setTimeout(function() {
+                    // Decrease remaining spots
+                    remainingSpots--;
+                    updateSpots();
+                    
+                    // Hide payment section, show confirmation
+                    paymentSection.classList.add('hidden');
+                    confirmationSection.classList.remove('hidden');
+                    
+                    // Update progress steps
+                    steps[2].querySelector('div').classList.remove('bg-gray-200', 'text-gray-600');
+                    steps[2].querySelector('div').classList.add('bg-purple-600', 'text-white');
+                    steps[2].querySelector('span').classList.remove('text-gray-500');
+                    steps[2].querySelector('span').classList.add('text-purple-600');
+                    
+                    progressBars[1].style.width = '100%';
+                    
+                    // Fill confirmation details
+                    document.getElementById('summary-name').textContent = document.getElementById('full-name').value;
+                    document.getElementById('summary-phone').textContent = document.getElementById('phone').value;
+                    document.getElementById('summary-payment').textContent = paymentMethod;
+                    
+                    // In a real app, here you would:
+                    // 1. Send the form data to your backend
+                    // 2. The backend would process the payment via Multicaixa Express API
+                    // 3. Send a WhatsApp notification to the instructor (936710640)
+                    sendWhatsAppNotification(paymentMethod);
+                    
+                    // Reset buttons
+                    payMulticaixaBtn.innerHTML = 'Pagar com Multicaixa <i class="fas fa-mobile-alt ml-2"></i>';
+                    payMulticaixaBtn.disabled = false;
+                    payTransferBtn.innerHTML = 'Receber Dados Bancários <i class="fas fa-university ml-2"></i>';
+                    payTransferBtn.disabled = false;
+                }, 2000);
+            }
+            
+            // Function to prepare WhatsApp message
+            function prepareWhatsAppMessage(paymentMethod) {
+                const formData = {
+                    name: document.getElementById('full-name').value,
+                    phone: document.getElementById('phone').value,
+                    email: document.getElementById('email').value || null,
+                    address: document.getElementById('address').value,
+                    age: document.getElementById('age').value,
+                    gender: document.querySelector('input[name="gender"]:checked').value,
+                    payment_method: paymentMethod,
+                    mobile_number: paymentMethod === 'Multicaixa Express' ? document.getElementById('mobile-number').value : null
+                };
+
+                // Prepare WhatsApp message
+                const whatsappMessage = `Nova inscrição no Curso de Confeitaria:
+                    
+Nome: ${formData.name}
+Telefone: ${formData.phone}
+${formData.email ? 'Email: ' + formData.email : ''}
+Morada: ${formData.address}
+Idade: ${formData.age}
+Sexo: ${formData.gender}
+Método de Pagamento: ${formData.payment_method}
+${formData.mobile_number ? 'Número Multicaixa: ' + formData.mobile_number : ''}
+
+Vagas restantes: ${remainingSpots-1}/10
+
+Envie o comprovativo para confirmar.`;
+
+                // Update WhatsApp button with complete message
+                const whatsappBtn = document.getElementById('whatsapp-btn');
+                whatsappBtn.href = `https://wa.me/244936710640?text=${encodeURIComponent(whatsappMessage)}`;
+            }
+
+            // Simulate payment processing and show confirmation
+            function simulatePayment(paymentMethod) {
+                // Show loading state
+                const payBtn = paymentMethod === 'Multicaixa Express' ? payMulticaixaBtn : payTransferBtn;
+                payBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Processando...';
+                payBtn.disabled = true;
+                
+                // Prepare WhatsApp message
+                prepareWhatsAppMessage(paymentMethod);
+
+                // Simulate API call delay
+                setTimeout(function() {
+                    // Decrease remaining spots
+                    remainingSpots--;
+                    updateSpots();
+                    
+                    // Hide payment section, show confirmation
+                    paymentSection.classList.add('hidden');
+                    confirmationSection.classList.remove('hidden');
+                    
+                    // Update progress steps
+                    steps[2].querySelector('div').classList.remove('bg-gray-200', 'text-gray-600');
+                    steps[2].querySelector('div').classList.add('bg-purple-600', 'text-white');
+                    steps[2].querySelector('span').classList.remove('text-gray-500');
+                    steps[2].querySelector('span').classList.add('text-purple-600');
+                    
+                    progressBars[1].style.width = '100%';
+                    
+                    // Fill confirmation details
+                    document.getElementById('summary-name').textContent = document.getElementById('full-name').value;
+                    document.getElementById('summary-phone').textContent = document.getElementById('phone').value;
+                    document.getElementById('summary-payment').textContent = paymentMethod;
+                    
+                    // Reset buttons
+                    payBtn.innerHTML = paymentMethod === 'Multicaixa Express' 
+                        ? 'Pagar com Multicaixa <i class="fas fa-mobile-alt ml-2"></i>' 
+                        : 'Receber Dados Bancários <i class="fas fa-university ml-2"></i>';
+                    payBtn.disabled = false;
+                }, 2000);
+            }
+        });
+    </script>
+</body>
+</html>
