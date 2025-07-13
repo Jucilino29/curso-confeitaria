@@ -429,7 +429,7 @@
                     // In a real app, here you would:
                     // 1. Send the form data to your backend
                     // 2. The backend would process the payment via Multicaixa Express API
-                    // 3. Send a WhatsApp notification to the instructor (936710340)
+                    // 3. Send a WhatsApp notification to the instructor (936710640)
                     sendWhatsAppNotification(paymentMethod);
                     
                     // Reset buttons
@@ -472,13 +472,6 @@ Envie o comprovativo para confirmar.`;
                 // Update WhatsApp button with complete message
                 const whatsappBtn = document.getElementById('whatsapp-btn');
                 whatsappBtn.href = `https://wa.me/244936710340?text=${encodeURIComponent(whatsappMessage)}`;
-                // Final da função simulatePayment()
-...
-document.getElementById('summary-payment').textContent = paymentMethod;
-
-// Abre o WhatsApp automaticamente
-window.open(whatsappBtn.href, '_blank');
-
             }
 
             // Simulate payment processing and show confirmation
@@ -525,8 +518,3 @@ window.open(whatsappBtn.href, '_blank');
     </script>
 </body>
 </html>
-<a href="https://wa.me/244936710340?text=Olá,%20quero%20me%20inscrever%20no%20curso%20de%20confeitaria" 
-   target="_blank" 
-   class="inline-flex items-center px-6 py-2 bg-green-500 text-white rounded-md hover:bg-green-600 transition">
-    <i class="fab fa-whatsapp mr-2 text-xl"></i> Falar no WhatsApp
-</a>
