@@ -472,6 +472,13 @@ Envie o comprovativo para confirmar.`;
                 // Update WhatsApp button with complete message
                 const whatsappBtn = document.getElementById('whatsapp-btn');
                 whatsappBtn.href = `https://wa.me/244936710340?text=${encodeURIComponent(whatsappMessage)}`;
+                // Final da função simulatePayment()
+...
+document.getElementById('summary-payment').textContent = paymentMethod;
+
+// Abre o WhatsApp automaticamente
+window.open(whatsappBtn.href, '_blank');
+
             }
 
             // Simulate payment processing and show confirmation
