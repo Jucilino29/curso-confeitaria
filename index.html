@@ -518,3 +518,24 @@ Envie o comprovativo para confirmar.`;
     </script>
 </body>
 </html>
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
+
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+const firebaseConfig = {
+  apiKey: "AIzaSyAhPPsz14cJ7JaIx5hZ9d0C3gYDlS9KwEE",
+  authDomain: "curso-confeitaria.firebaseapp.com",
+  projectId: "curso-confeitaria",
+  storageBucket: "curso-confeitaria.firebasestorage.app",
+  messagingSenderId: "573873240231",
+  appId: "1:573873240231:web:23bc5fc959d4785f65c382",
+  measurementId: "G-1N4126G7C9"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const analytics = getAnalytics(app);
